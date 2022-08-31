@@ -23,9 +23,8 @@ const PokemonDetails = () => {
     <div className='container_det'>
     <HeaderPoke />
     <article className='cardet'>
-    <h1 className='cardet__title'>{name.toUpperCase()}</h1>
-    <img className='cardet__img' src={pokeInfo?.sprites.other['official-artwork'].front_default} alt="" />
-      
+      <h1 className='cardet__title'>{name.toUpperCase()}</h1>
+      <img className='imagen_det' src={pokeInfo?.sprites.other['official-artwork'].front_default} alt="" />
     </article>
     </div>
   )

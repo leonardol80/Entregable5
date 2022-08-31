@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: antiquewhite;
 }
 
 .cardet{
@@ -26,13 +27,19 @@
   overflow: hidden;
   box-shadow: 0 1px 7px #0003;
   border: 5px solid #B1DBBC;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .cardet__img{
     background-color: white;
+    background-color: red;
     width: 100%;
     max-width: 200px;
+    height: auto;
+    display: flex;
     justify-content: center;
+    align-items: center;
     transform: translateX(-50%);
 }
 
