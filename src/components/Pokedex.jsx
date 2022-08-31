@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import PokemonCard from './pokedex/PokemonCard'
+import PokemonCard from './Pokedex/PokemonCard'
 import SearchInput from './Pokedex/SearchInput'
 import SelectType from './Pokedex/SelectType'
 import HeaderPoke from './shared/HeaderPoke'
