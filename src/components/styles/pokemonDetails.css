@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container_det{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardet{
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: red;
+  overflow: hidden;
+  box-shadow: 0 1px 7px #0003;
+  border: 5px solid #B1DBBC;
+}
+
+.cardet__img{
+    background-color: white;
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+    transform: translateX(-50%);
+}
+
+.cardet__title{
+    font-size: 30px;
+    font-weight: bold;
+}
