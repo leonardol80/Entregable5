@@ -6,12 +6,17 @@ import SearchInput from './pokedex/SearchInput'
 import SelectType from './pokedex/SelectType'
 import HeaderPoke from './shared/HeaderPoke'
 import './styles/pokedex.css'
+import Pagination from './Pagination'
 
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
   const [pokeSearch, setPokeSearch] = useState()
   const [optionType, setOptionType] = useState('All')
+
+  const [currentBlock, setCurrentBlock] = useState(1);
+  const [page,setPage] = useState(0);
+
 
   useEffect(() => {
     if(optionType !== 'All'){
@@ -33,12 +38,14 @@ const Pokedex = () => {
       setPokemons(obj)
     } else {
       // Aquí se hace la lógica cuando el usuario quiere todos los pokemons
-      const URL = 'https://pokeapi.co/api/v2/pokemon'
+      const URL = 'https://pokeapi.co/api/v2/pokemon/?limit=99999999999&offset=0'
       axios.get(URL)
         .then(res => setPokemons(res.data))
         .catch(err => console.log(err))
     }
-  }, [pokeSearch, optionType])
+  }, [pokeSearch, optionType, page])
+
+  // next:"https://pokeapi.co/api/v2/ability/?limit=20&offset=20"
 
   const nameTrainer = useSelector(state => state.nameTrainer)
 
@@ -51,10 +58,12 @@ const Pokedex = () => {
         optionType={optionType} 
         setOptionType={setOptionType} 
         setPokeSearch={setPokeSearch}
+        setPage={setPage}
+        setCurrentBlock={setCurrentBlock}
       />
       <div className='cards-container'>
         {
-          pokemons?.results.map(pokemon => (
+          pokemons?.results.slice(page*20, (page+1)*20).map(pokemon => (
             <PokemonCard 
               key={pokemon.url}
               url={pokemon.url}
@@ -62,6 +71,16 @@ const Pokedex = () => {
           ))
         }
       </div>
+      <Pagination
+        pokemons={pokemons}
+        setPage={setPage}
+        page={page}
+        currentBlock={currentBlock}
+        setCurrentBlock={setCurrentBlock}
+      />
+      <section className='contenedor-button-next'>
+        {/* <button className='button_next' >Next</button> */}
+      </section>
     </div>
   )
 }

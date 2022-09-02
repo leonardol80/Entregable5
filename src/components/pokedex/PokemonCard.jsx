@@ -16,6 +16,7 @@ const PokemonCard = ({url}) => {
       .catch(err => console.log(err))
   }, [])
 
+  // Redireccionamiento
   const handleClick = () => navigate(`/pokedex/${pokemon.name}`)
 
   return (
